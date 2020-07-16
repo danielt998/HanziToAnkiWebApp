@@ -33,6 +33,10 @@
   },
   "devDependencies": {
     "backpack-react-scripts": "^8.0.0-beta.41a3a687f",
+    "bpk-component-button": "^3.2.45",
+    "bpk-component-label": "^4.0.67",
+    "bpk-component-radio": "^2.0.66",
+    "bpk-component-select": "^3.0.66",
     "bpk-component-textarea": "^2.0.66"
   }
 }
