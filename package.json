@@ -1,5 +1,5 @@
 {
-  "name": "chinese_test",
+  "name": "HanziToAnkiWebApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,5 +30,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "backpack-react-scripts": "^8.0.0-beta.41a3a687f",
+    "bpk-component-textarea": "^2.0.66"
   }
 }

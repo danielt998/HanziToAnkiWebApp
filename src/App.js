@@ -1,24 +1,18 @@
 import React from 'react';
+//import BpkInput from 'bpk-component-input';
+import BpkTextarea from 'bpk-component-textarea';
+
 import logo from './logo.svg';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <BpkTextarea rows="10" />
       </header>
+
     </div>
   );
 }
