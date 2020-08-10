@@ -1,33 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BpkTextarea from 'bpk-component-textarea';
 import BpkButton from 'bpk-component-button';
 import BpkSelect from 'bpk-component-select';
 import BpkLabel from 'bpk-component-label';
 
-import './App.css';
+import './App.scss';
 
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {flashcardType:"pleco"}
-  }
+  const [flashcardType] = useState(0);
+//  constructor() {
+//    super();
+//    this.state = {flashcardType:"pleco"}
+//  }
   render () {
     return (
     <div className="App">
       <header className="App-header">
         <BpkTextarea rows="10" />
+        <div>
+        <div class ="leftDiv">
         <BpkLabel>Flashcard type</BpkLabel>
-        <BpkSelect onChange={(e) => this.state=e.target.value}>
+        {/*<BpkSelect onChange={(e) => this.state.flashcardType=e.target.value}>*/}
+        <BpkSelect onChange={(e) => setFlashcardType(e.target.value)}>
           <option value="pleco">Pleco</option>
           <option value="anki">Anki</option>
         </BpkSelect>
-        <BpkButton>Generate Flashcards</BpkButton>
+        </div>
+        <div class ="rightDiv">
+          </div>
+          </div>
+        {/*<BpkButton onClick={this.getFlashcardFile}>Generate Flashcards</BpkButton>*/}
+        <BpkButton onClick={logState()}>Generate Flashcards</BpkButton>
+
 
       </header>
 
     </div>
     );
+  }
+
+  logState() {
+    console.log(this.state);
+  }
+
+  getFlashcardFile(){
+    const text = fetch('http://localhost:5002/generate');
+    const data = new Blob([text], {type: 'text/plain'});
+    console.log(this.state)
+    return window.URL.createObjectURL(data);
+
+   // document.getElementById('download_link').href = url;
   }
 }
 
