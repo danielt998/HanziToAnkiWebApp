@@ -6,14 +6,8 @@ import BpkLabel from 'bpk-component-label';
 
 import './App.scss';
 
-
-class App extends React.Component {
-  const [flashcardType] = useState(0);
-//  constructor() {
-//    super();
-//    this.state = {flashcardType:"pleco"}
-//  }
-  render () {
+function App() {
+  const [flashcardType, setFlashcardType] = useState('Anki');
     return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +15,6 @@ class App extends React.Component {
         <div>
         <div class ="leftDiv">
         <BpkLabel>Flashcard type</BpkLabel>
-        {/*<BpkSelect onChange={(e) => this.state.flashcardType=e.target.value}>*/}
         <BpkSelect onChange={(e) => setFlashcardType(e.target.value)}>
           <option value="pleco">Pleco</option>
           <option value="anki">Anki</option>
@@ -31,27 +24,26 @@ class App extends React.Component {
           </div>
           </div>
         {/*<BpkButton onClick={this.getFlashcardFile}>Generate Flashcards</BpkButton>*/}
-        <BpkButton onClick={logState()}>Generate Flashcards</BpkButton>
+        <BpkButton>Generate Flashcards</BpkButton>
 
 
       </header>
 
     </div>
     );
-  }
 
-  logState() {
-    console.log(this.state);
-  }
+  // logState() {
+  //   console.log(this.state);
+  // }
 
-  getFlashcardFile(){
-    const text = fetch('http://localhost:5002/generate');
-    const data = new Blob([text], {type: 'text/plain'});
-    console.log(this.state)
-    return window.URL.createObjectURL(data);
+  // getFlashcardFile(){
+  //   const text = fetch('http://localhost:5002/generate');
+  //   const data = new Blob([text], {type: 'text/plain'});
+  //   console.log(this.state)
+  //   return window.URL.createObjectURL(data);
 
-   // document.getElementById('download_link').href = url;
-  }
+  //  // document.getElementById('download_link').href = url;
+  // }
 }
 
 export default App;
